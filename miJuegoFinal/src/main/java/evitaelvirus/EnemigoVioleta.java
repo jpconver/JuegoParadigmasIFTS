@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+
 import javax.imageio.ImageIO;
 
 public class EnemigoVioleta extends Personaje {
@@ -12,10 +14,11 @@ public class EnemigoVioleta extends Personaje {
 	
 	public EnemigoVioleta (int posicionX, int posicionY, int velocidadX, int velocidadY, int ancho, int largo) {
 		super(posicionX, posicionY, velocidadX, velocidadY, ancho, largo);
-		String path = "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/virusvioleta.png";
+		String resource = "imagenes/virusvioleta.png";
 		try {
+			String path = Paths.get(EnemigoVerde.class.getClassLoader().getResource(resource).toURI()).toString();
 		    this.img = ImageIO.read(new File(path));
-		} catch (IOException e) {
+		} catch (Exception e) {
 		    throw new RuntimeException(e);
 		}
 	}

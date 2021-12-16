@@ -1,6 +1,5 @@
 package evitaelvirus;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -11,7 +10,7 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 
-import paleta.Sonidos;
+
 
 public class Panel extends JPanel implements Runnable, KeyListener {
 	private final static int PANTALLA_INICIO = 0;
@@ -47,10 +46,10 @@ public class Panel extends JPanel implements Runnable, KeyListener {
     }
     
     public void inicializarPantallas() {
-    	this.fondo = new PantallaImagen(anchoJuego, largoJuego, "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/fondoCiudad.jpg");
-    	this.pantallaInicio = new PantallaImagen(anchoJuego, largoJuego, "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/pantallaInicio.png");
-        this.pantallaPerdedor = new PantallaImagen(anchoJuego, largoJuego, "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/pantallaPerdedor.png");
-        this.pantallaGanador = new PantallaGanador(anchoJuego, largoJuego, "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/pantallaGanador.png");
+    	this.fondo = new PantallaImagen(anchoJuego, largoJuego, "imagenes/fondoCiudad.jpg");
+    	this.pantallaInicio = new PantallaImagen(anchoJuego, largoJuego, "imagenes/pantallaInicio.png");
+        this.pantallaPerdedor = new PantallaImagen(anchoJuego, largoJuego, "imagenes/pantallaPerdedor.png");
+        this.pantallaGanador = new PantallaGanador(anchoJuego, largoJuego, "imagenes/pantallaGanador.png");
     }
     
     public void inicializarPersona() {
@@ -277,7 +276,7 @@ public class Panel extends JPanel implements Runnable, KeyListener {
     private void cargarSonidos() {
         try {
             sonidos = new Sonidos();
-            sonidos.agregarSonido("intro", "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/sonidos/waduwadu.wav");
+            sonidos.agregarSonido("intro", "sonidos/waduwadu.wav");
         } catch (Exception e1) {
             throw new RuntimeException(e1);
         }

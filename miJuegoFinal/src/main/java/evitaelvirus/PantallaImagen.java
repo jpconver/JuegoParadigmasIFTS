@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 
+
 public class PantallaImagen {
 
     protected BufferedImage img;
@@ -17,7 +18,7 @@ public class PantallaImagen {
         try {
             this.ancho = ancho;
             this.largo = largo;
-            String path = resource;
+            String path = Paths.get(PantallaImagen.class.getClassLoader().getResource(resource).toURI()).toString();
             this.img = ImageIO.read(new File(path));
         } catch (Exception e1) {
             throw new RuntimeException(e1);

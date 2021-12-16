@@ -23,7 +23,7 @@ public class Sonidos {
     public void agregarSonido(String nombre, String archivo) {
         try {
             byte[] fileContent = Files
-                    .readAllBytes(Paths.get(Sonidos.class.getClassLoader().getResource("/"+archivo).toURI()));
+                    .readAllBytes(Paths.get(Sonidos.class.getClassLoader().getResource(archivo).toURI()));
             sonidos.put(nombre, fileContent);
         } catch (Exception e) {
             e.printStackTrace();

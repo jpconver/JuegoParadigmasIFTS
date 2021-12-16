@@ -3,7 +3,7 @@ package evitaelvirus;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 
@@ -12,10 +12,10 @@ public class Persona extends Personaje {
     
     public Persona (int posicionX, int posicionY, int velocidadX, int velocidadY, int ancho, int largo) {
 		super(posicionX, posicionY, velocidadX, velocidadY, ancho, largo);
-		String path = "/C:/Users/amira/OneDrive/Documentos/IFTS/Paradigmas/practicasJavaParadigmas/src/main/resources/imagenes/carita.png";
 		try {
+			String path = Paths.get(Persona.class.getClassLoader().getResource("imagenes/carita.png").toURI()).toString();
 		    this.img = ImageIO.read(new File(path));
-		} catch (IOException e) {
+		} catch (Exception e) {
 		    throw new RuntimeException(e);
 		}
 	}
